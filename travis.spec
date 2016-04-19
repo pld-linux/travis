@@ -9,7 +9,7 @@ Release:	1
 License:	MIT
 Group:		Development/Building
 Source0:	http://rubygems.org/downloads/%{name}-%{version}.gem
-# Source0-md5:	-
+# Source0-md5:	f488280a4a10f0d036daaed64dfc3bd9
 URL:		https://github.com/travis-ci/travis.rb
 BuildRequires:	rpm-rubyprov
 BuildRequires:	rpmbuild(macros) >= 1.656
@@ -46,8 +46,8 @@ Requires:	ruby-launchy >= 2.1
 Requires:	ruby-modules >= 1:1.9
 Requires:	ruby-pusher-client < 1
 Requires:	ruby-pusher-client >= 0.4
-Requires:	ruby-typhoeus < 1
-Requires:	ruby-typhoeus >= 0.6.8
+#Requires:	ruby-typhoeus < 1
+#Requires:	ruby-typhoeus >= 0.6.8
 
 %description -n ruby-%{name}
 Ruby client library for Travis CI.
