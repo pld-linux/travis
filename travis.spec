@@ -5,11 +5,12 @@
 Summary:	Travis CI client
 Name:		travis
 Version:	1.8.2
-Release:	1
+Release:	1.1
 License:	MIT
 Group:		Development/Building
 Source0:	http://rubygems.org/downloads/%{name}-%{version}.gem
 # Source0-md5:	f488280a4a10f0d036daaed64dfc3bd9
+Patch0:		assets.patch
 URL:		https://github.com/travis-ci/travis.rb
 BuildRequires:	rpm-rubyprov
 BuildRequires:	rpmbuild(macros) >= 1.656
@@ -53,8 +54,9 @@ Requires:	ruby-pusher-client >= 0.4
 Ruby client library for Travis CI.
 
 %prep
-%setup -q -n %{pkgname}-%{version}
+%setup -q
 %{__sed} -i -e '1 s,#!.*ruby,#!%{__ruby},' bin/*
+%patch0 -p1
 
 %build
 # write .gemspec
@@ -62,8 +64,9 @@ Ruby client library for Travis CI.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{ruby_vendorlibdir},%{ruby_specdir},%{_bindir}}
+install -d $RPM_BUILD_ROOT{%{ruby_vendorlibdir}/%{name}/assets,%{ruby_specdir},%{_bindir}}
 cp -a lib/* $RPM_BUILD_ROOT%{ruby_vendorlibdir}
+cp -a assets/init $RPM_BUILD_ROOT%{ruby_vendorlibdir}/%{name}/assets
 cp -a bin/* $RPM_BUILD_ROOT%{_bindir}
 cp -p %{name}-%{version}.gemspec $RPM_BUILD_ROOT%{ruby_specdir}
 

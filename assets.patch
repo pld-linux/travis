@@ -1,0 +1,11 @@
+--- travis-1.8.2/lib/travis/tools/assets.rb~	2016-09-06 21:17:51.000000000 +0300
++++ travis-1.8.2/lib/travis/tools/assets.rb	2016-09-06 21:19:05.675645262 +0300
+@@ -1,7 +1,7 @@
+ module Travis
+   module Tools
+     module Assets
+-      BASE = File.expand_path('../../../../assets', __FILE__)
++      BASE = File.expand_path('../assets', __FILE__)
+       extend self
+ 
+       def asset_path(file)
