@@ -5,7 +5,7 @@
 Summary:	Travis CI client
 Name:		travis
 Version:	1.8.2
-Release:	1.1
+Release:	1.2
 License:	MIT
 Group:		Development/Building
 Source0:	http://rubygems.org/downloads/%{name}-%{version}.gem

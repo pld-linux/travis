@@ -5,7 +5,7 @@
    module Tools
      module Assets
 -      BASE = File.expand_path('../../../../assets', __FILE__)
-+      BASE = File.expand_path('../assets', __FILE__)
++      BASE = File.expand_path('../../assets', __FILE__)
        extend self
  
        def asset_path(file)
