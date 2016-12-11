@@ -11,6 +11,7 @@ Group:		Development/Building
 Source0:	http://rubygems.org/downloads/%{name}-%{version}.gem
 # Source0-md5:	f7a6eae3009bc6f7aacc47833fe3fc81
 Patch0:		assets.patch
+Patch1:		skip-version-check.patch
 URL:		https://github.com/travis-ci/travis.rb
 BuildRequires:	rpm-rubyprov
 BuildRequires:	rpmbuild(macros) >= 1.656
@@ -57,6 +58,7 @@ Ruby client library for Travis CI.
 %setup -q
 %{__sed} -i -e '1 s,#!.*ruby,#!%{__ruby},' bin/*
 %patch0 -p1
+%patch1 -p1
 
 %build
 # write .gemspec

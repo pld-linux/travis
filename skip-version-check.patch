@@ -1,0 +1,10 @@
+--- travis-1.8.5/lib/travis/cli/command.rb~	2016-12-11 16:46:37.000000000 +0200
++++ travis-1.8.5/lib/travis/cli/command.rb	2016-12-11 16:50:11.536442978 +0200
+@@ -192,7 +192,6 @@
+         check_ruby
+         check_arity(method(:run), *arguments)
+         load_config
+-        check_version
+         check_completion
+         setup
+         run(*arguments)
