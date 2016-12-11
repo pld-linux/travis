@@ -60,15 +60,21 @@ Ruby client library for Travis CI.
 %patch0 -p1
 %patch1 -p1
 
+# use ca-certificates package
+mv assets/cacert.pem .
+
+# OSX Specific
+mv assets/notifications .
+
 %build
 # write .gemspec
 %__gem_helper spec
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{ruby_vendorlibdir}/%{name}/assets,%{ruby_specdir},%{_bindir}}
+install -d $RPM_BUILD_ROOT{%{ruby_vendorlibdir}/%{name},%{ruby_specdir},%{_bindir}}
 cp -a lib/* $RPM_BUILD_ROOT%{ruby_vendorlibdir}
-cp -a assets/init $RPM_BUILD_ROOT%{ruby_vendorlibdir}/%{name}/assets
+cp -a assets $RPM_BUILD_ROOT%{ruby_vendorlibdir}/%{name}
 cp -a bin/* $RPM_BUILD_ROOT%{_bindir}
 cp -p %{name}-%{version}.gemspec $RPM_BUILD_ROOT%{ruby_specdir}
 
